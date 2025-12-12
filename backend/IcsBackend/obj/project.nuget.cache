@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "PtKsiB+IoUs=",
+  "success": true,
+  "projectFilePath": "/home/yassora/Development/ics-portal/backend/IcsBackend/IcsBackend.csproj",
+  "expectedPackageFiles": [
+    "/home/yassora/.nuget/packages/microsoft.aspnetcore.openapi/9.0.11/microsoft.aspnetcore.openapi.9.0.11.nupkg.sha512",
+    "/home/yassora/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
