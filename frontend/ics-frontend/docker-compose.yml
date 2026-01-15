@@ -1,0 +1,27 @@
+services:
+  ics-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ics-frontend
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - ics-network
+
+  # Uncomment if you want to run the backend as well
+  # ics-backend:
+  #   build:
+  #     context: ../../backend/IcsBackend
+  #     dockerfile: Dockerfile
+  #   container_name: ics-backend
+  #   ports:
+  #     - "5000:5000"
+  #   restart: unless-stopped
+  #   networks:
+  #     - ics-network
+
+networks:
+  ics-network:
+    driver: bridge

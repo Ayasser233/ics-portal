@@ -1,0 +1,5 @@
+@use '../../../styles/index' as *;
+
+.main-content {
+  min-height: calc(100vh - 200px);
+}

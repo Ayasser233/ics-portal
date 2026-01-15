@@ -1,0 +1,24 @@
+<section class="package-includes">
+  <div class="package-includes__container">
+    @if (title) {
+      <h2 class="package-includes__title">{{ title }}</h2>
+    }
+
+    <div class="package-includes__grid">
+      @for (feature of features; track feature.title) {
+        <div class="package-feature">
+          <div class="package-feature__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="package-feature__content">
+            <h3 class="package-feature__title">{{ feature.title }}</h3>
+            <p class="package-feature__description">{{ feature.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

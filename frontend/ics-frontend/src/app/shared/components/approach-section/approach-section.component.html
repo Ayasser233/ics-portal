@@ -1,0 +1,37 @@
+<section class="approach-section">
+  <div class="approach-section__container">
+    @if (title) {
+      <h2 class="approach-section__title">{{ title }}</h2>
+    }
+
+    <div class="approach-section__grid">
+      @for (item of items; track item.title) {
+        <div class="approach-card">
+          <div class="approach-card__icon" [ngClass]="'approach-card__icon--' + item.iconColor">
+            @if (item.icon === 'check-circle') {
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            }
+            @if (item.icon === 'trending-up') {
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="17 6 23 6 23 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            }
+            @if (item.icon === 'users-support') {
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            }
+          </div>
+          <h3 class="approach-card__title">{{ item.title }}</h3>
+          <p class="approach-card__description">{{ item.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,1 +1,136 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Import design system
+@use 'styles/index' as *;
+
+// Global Reset and Base Styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @include smooth-scroll;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $text-primary;
+  background-color: $bg-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+// Typography Reset
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $text-primary;
+}
+
+h1 {
+  @include heading-1;
+}
+
+h2 {
+  @include heading-2;
+}
+
+h3 {
+  @include heading-3;
+}
+
+p {
+  margin: 0;
+  @include body-base;
+}
+
+a {
+  color: $primary-navy;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary-navy-dark;
+  }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Utility Classes
+.container {
+  @include container;
+}
+
+.container-sm {
+  @include container($container-sm);
+}
+
+.container-lg {
+  @include container($container-lg);
+}
+
+.container-xl {
+  @include container($container-xl);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+

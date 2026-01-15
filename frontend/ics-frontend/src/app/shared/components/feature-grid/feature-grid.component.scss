@@ -1,0 +1,70 @@
+@use '../../../../styles/index' as *;
+
+.feature-grid {
+  display: grid;
+  gap: $spacing-8;
+  grid-template-columns: 1fr;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--cols-3 {
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &--cols-4 {
+    @include respond-to(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &--cols-5 {
+    @include respond-to(xl) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+}
+
+.feature-card {
+  @include card;
+  text-align: center;
+  transition: all $transition-base;
+  border: none;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+  }
+
+  &__icon {
+    width: 80px;
+    height: 80px;
+    border-radius: $radius-xl;
+    @include flex-center;
+    margin: 0 auto $spacing-6;
+    color: $primary-gold;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: invert(72%) sepia(89%) saturate(402%) hue-rotate(359deg) brightness(99%) contrast(89%);
+    }
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: $spacing-3;
+  }
+
+  &__description {
+    @include body-base;
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+  }
+}

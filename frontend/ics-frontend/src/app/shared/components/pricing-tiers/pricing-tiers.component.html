@@ -1,0 +1,47 @@
+<section class="pricing-tiers">
+  <div class="pricing-tiers__container">
+    <div class="pricing-tiers__header">
+      @if (badge) {
+        <span class="pricing-tiers__badge">{{ badge }}</span>
+      }
+      @if (title) {
+        <h1 class="pricing-tiers__title">{{ title }}</h1>
+      }
+      @if (description) {
+        <p class="pricing-tiers__description">{{ description }}</p>
+      }
+    </div>
+
+    <div class="pricing-tiers__grid">
+      @for (tier of tiers; track tier.name) {
+        <div class="pricing-card" [class.pricing-card--highlighted]="tier.highlighted">
+          @if (tier.badge) {
+            <span class="pricing-card__badge">{{ tier.badge }}</span>
+          }
+
+          <h3 class="pricing-card__name">{{ tier.name }}</h3>
+          <p class="pricing-card__description">{{ tier.description }}</p>
+          <p class="pricing-card__price">{{ tier.price }}</p>
+
+          <ul class="pricing-card__features">
+            @for (feature of tier.features; track feature) {
+              <li class="pricing-card__feature">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.667 5L7.5 14.167 3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+
+          <a [routerLink]="tier.buttonLink" class="pricing-card__button" [class.pricing-card__button--primary]="tier.highlighted">
+            {{ tier.buttonText }}
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+</section>

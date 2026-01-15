@@ -1,0 +1,13 @@
+<div class="feature-grid" [class]="'feature-grid--cols-' + columns">
+  @for (feature of features; track feature.title) {
+    <div class="feature-card">
+      <div class="feature-card__icon">
+        @if (feature.icon) {
+          <img [src]="getIconPath(feature.icon)" [alt]="feature.title" />
+        }
+      </div>
+      <h3 class="feature-card__title">{{ feature.title }}</h3>
+      <p class="feature-card__description">{{ feature.description }}</p>
+    </div>
+  }
+</div>

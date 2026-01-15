@@ -1,0 +1,60 @@
+// Primary Colors (Logo Colors)
+$primary-navy: #0f174b;
+$primary-navy-dark: #080d2a;
+$primary-navy-light: #1a2566;
+
+$primary-gold: #e1bc30;
+$primary-gold-dark: #c5a51f;
+$primary-gold-light: #ead14d;
+
+// Neutral Colors
+$white: #ffffff;
+$black: #000000;
+
+$gray-50: #f8fafc;
+$gray-100: #f1f5f9;
+$gray-200: #e2e8f0;
+$gray-300: #cbd5e1;
+$gray-400: #94a3b8;
+$gray-500: #64748b;
+$gray-600: #475569;
+$gray-700: #334155;
+$gray-800: #1e293b;
+$gray-900: #0f172a;
+
+// Accent Colors
+$accent-green: #10b981;
+$accent-green-light: #34d399;
+$accent-red: #ef4444;
+$accent-red-light: #f87171;
+$accent-yellow: $primary-gold;
+$accent-yellow-light: $primary-gold-light;
+
+// Background Colors
+$bg-primary: $white;
+$bg-secondary: $gray-50;
+$bg-dark: $primary-navy;
+$bg-footer: $primary-navy;
+
+// Text Colors
+$text-primary: $gray-900;
+$text-secondary: $gray-700;
+$text-muted: $gray-500;
+$text-light: $gray-400;
+$text-white: $white;
+$text-on-dark: $gray-200;
+
+// Border Colors
+$border-light: $gray-200;
+$border-medium: $gray-300;
+$border-dark: $gray-400;
+
+// State Colors
+$success: $accent-green;
+$error: $accent-red;
+$warning: $primary-gold;
+$info: $primary-navy;
+
+// Overlay Colors
+$overlay-light: rgba(0, 0, 0, 0.3);
+$overlay-dark: rgba(0, 0, 0, 0.6);

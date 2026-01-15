@@ -1,0 +1,47 @@
+<div class="contact-info-card">
+  <div class="contact-info-card__icon" [ngClass]="'contact-info-card__icon--' + info.icon">
+    @if (info.icon === 'email') {
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    } @else if (info.icon === 'phone') {
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 16.92V19.92C22 20.49 21.54 20.97 20.97 21C20.72 21.01 20.47 21.02 20.22 21.02C10.44 21.02 2.48 13.06 2.48 3.28C2.48 3.03 2.49 2.78 2.52 2.53C2.55 1.96 3.03 1.5 3.6 1.5H6.6C7.13 1.5 7.58 1.89 7.64 2.41C7.75 3.36 7.98 4.28 8.32 5.16C8.47 5.54 8.36 5.98 8.04 6.26L6.29 7.72C7.87 10.87 10.13 13.13 13.28 14.71L14.74 12.96C15.02 12.64 15.46 12.53 15.84 12.68C16.72 13.02 17.64 13.25 18.59 13.36C19.11 13.42 19.5 13.87 19.5 14.4V17.4C19.5 18.03 18.96 18.5 18.42 18.5C18.14 18.5 17.86 18.49 17.58 18.47C17.01 18.43 16.53 17.96 16.5 17.39V17.39" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    } @else if (info.icon === 'location') {
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    } @else if (info.icon === 'whatsapp') {
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12C2 13.89 2.525 15.66 3.438 17.168L2.546 20.2C2.49478 20.3741 2.49141 20.5587 2.53624 20.7346C2.58107 20.9104 2.67245 21.0709 2.80076 21.1992C2.92907 21.3276 3.08958 21.4189 3.26542 21.4638C3.44125 21.5086 3.62592 21.5052 3.8 21.454L6.832 20.562C8.39027 21.5041 10.1782 22.0029 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM9.738 14.263C11.761 16.285 13.692 16.552 14.374 16.577C15.411 16.615 16.421 15.823 16.814 14.904C16.8632 14.7914 16.8796 14.6669 16.8612 14.5454C16.8428 14.4239 16.7906 14.3106 16.711 14.219C16.178 13.585 15.437 13.138 14.713 12.797C14.5675 12.7254 14.4014 12.7058 14.2433 12.7417C14.0851 12.7776 13.9444 12.867 13.844 12.995L13.412 13.53C13.3673 13.5851 13.3069 13.6253 13.2387 13.6451C13.1706 13.665 13.0982 13.6636 13.031 13.641C12.227 13.357 11.097 12.529 10.501 11.547C10.4593 11.4864 10.4347 11.4155 10.4297 11.3416C10.4248 11.2677 10.4396 11.1938 10.473 11.128L10.833 10.408C10.9149 10.2452 10.9394 10.0593 10.9024 9.88051C10.8654 9.70176 10.7692 9.54071 10.629 9.423C9.992 8.901 9.257 8.447 8.494 8.157C8.37954 8.11407 8.25593 8.10116 8.13528 8.11962C8.01463 8.13809 7.90092 8.18734 7.805 8.262C6.823 9.024 6.523 10.075 6.923 11.103C7.3 12.07 8.144 13.278 9.738 14.263Z" fill="currentColor"/>
+      </svg>
+    }
+  </div>
+
+  <div class="contact-info-card__content">
+    <h3 class="contact-info-card__title">{{ info.title }}</h3>
+    @if (info.icon === 'email') {
+      <a [href]="'mailto:' + info.primaryText" class="contact-info-card__primary contact-info-card__link">{{ info.primaryText }}</a>
+    } @else if (info.icon === 'phone') {
+      <a [href]="'tel:' + info.primaryText" class="contact-info-card__primary contact-info-card__link">{{ info.primaryText }}</a>
+    } @else if (info.icon === 'whatsapp' && info.whatsappNumber) {
+      <a [href]="'https://wa.me/' + info.whatsappNumber" target="_blank" rel="noopener noreferrer" class="contact-info-card__primary contact-info-card__link contact-info-card__link--whatsapp">
+        {{ info.primaryText }}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4L4 12M12 4H6M12 4V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    } @else {
+      <p class="contact-info-card__primary">{{ info.primaryText }}</p>
+    }
+    @if (info.secondaryText) {
+      <p class="contact-info-card__secondary">{{ info.secondaryText }}</p>
+    }
+    @if (info.tertiaryText) {
+      <p class="contact-info-card__tertiary">{{ info.tertiaryText }}</p>
+    }
+  </div>
+</div>

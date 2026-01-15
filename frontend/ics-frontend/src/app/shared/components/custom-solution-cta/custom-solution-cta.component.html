@@ -1,0 +1,17 @@
+<section class="custom-solution-cta">
+  <div class="custom-solution-cta__container">
+    <div class="custom-solution-cta__content">
+      @if (title) {
+        <h2 class="custom-solution-cta__title">{{ title }}</h2>
+      }
+      @if (description) {
+        <p class="custom-solution-cta__description">{{ description }}</p>
+      }
+      @if (buttonText && buttonLink) {
+        <a [routerLink]="buttonLink" class="custom-solution-cta__button">
+          {{ buttonText }}
+        </a>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+@use '../../../../../styles/index' as *;
+
+.services-page {
+  padding: $spacing-20 0;
+  background-color: $bg-secondary;
+  min-height: 100vh;
+
+  &__header {
+    @include container($container-xl);
+    text-align: center;
+    margin-bottom: $spacing-16;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: $spacing-2 $spacing-4;
+    background-color: rgba($primary-navy, 0.1);
+    color: $primary-navy;
+    border-radius: $radius-full;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-6;
+  }
+
+  &__title {
+    @include heading-1;
+    margin-bottom: $spacing-6;
+  }
+
+  &__description {
+    @include body-large;
+    color: $text-secondary;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    @include container($container-xl);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-8;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

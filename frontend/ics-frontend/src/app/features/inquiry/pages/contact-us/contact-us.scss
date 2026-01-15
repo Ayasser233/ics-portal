@@ -1,0 +1,185 @@
+@use '../../../../../styles/index' as *;
+
+.contact-us {
+  padding: $spacing-8 0;
+  width: 100%;
+  overflow-x: hidden;
+
+  @include respond-to(sm) {
+    padding: $spacing-10 0;
+  }
+
+  @include respond-to(md) {
+    padding: $spacing-12 0;
+  }
+
+  @include respond-to(lg) {
+    padding: $spacing-16 0;
+  }
+
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $spacing-3;
+
+    @include respond-to(sm) {
+      padding: 0 $spacing-4;
+    }
+
+    @include respond-to(md) {
+      padding: 0 $spacing-6;
+    }
+
+    @include respond-to(lg) {
+      padding: 0 $spacing-8;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-8;
+    width: 100%;
+
+    @include respond-to(sm) {
+      margin-bottom: $spacing-10;
+    }
+
+    @include respond-to(md) {
+      margin-bottom: $spacing-12;
+    }
+
+    @include respond-to(lg) {
+      margin-bottom: $spacing-16;
+    }
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: $spacing-2 $spacing-4;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $primary-navy;
+    background-color: rgba($primary-navy, 0.1);
+    border-radius: $radius-full;
+    margin-bottom: $spacing-4;
+
+    @include respond-to(md) {
+      padding: $spacing-2 $spacing-6;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-6;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin: 0 0 $spacing-4;
+    line-height: 1.2;
+
+    @include respond-to(sm) {
+      font-size: $font-size-3xl;
+    }
+
+    @include respond-to(md) {
+      font-size: $font-size-4xl;
+      margin: 0 0 $spacing-6;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+
+    @include respond-to(sm) {
+      font-size: $font-size-base;
+      max-width: 600px;
+    }
+
+    @include respond-to(md) {
+      font-size: $font-size-lg;
+      max-width: 800px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-8;
+    width: 100%;
+
+    @include respond-to(sm) {
+      gap: $spacing-10;
+    }
+
+    @include respond-to(md) {
+      gap: $spacing-12;
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-12;
+    }
+
+    @include respond-to(xl) {
+      gap: $spacing-16;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+    width: 100%;
+    min-width: 0;
+
+    @include respond-to(sm) {
+      gap: $spacing-8;
+    }
+
+    @include respond-to(md) {
+      gap: $spacing-10;
+    }
+
+    @include respond-to(lg) {
+      gap: $spacing-12;
+    }
+  }
+
+  &__section-title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__section-description {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0;
+
+    @include respond-to(md) {
+      font-size: $font-size-base;
+    }
+  }
+
+  &__info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+
+    @include respond-to(md) {
+      gap: $spacing-8;
+    }
+  }
+}

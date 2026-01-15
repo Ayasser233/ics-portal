@@ -1,0 +1,119 @@
+@use '../../../../styles/index' as *;
+
+.cta-banner {
+  padding: $spacing-20;
+  margin: $spacing-20 0;
+
+  &__container {
+    @include container($container-lg);
+    background: linear-gradient(135deg, $primary-navy 0%, $primary-navy 100%);
+    border-radius: $radius-2xl;
+    padding: $spacing-16 $spacing-12;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    @include respond-to(md) {
+      padding: $spacing-20 $spacing-16;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 70% 30%, rgba($white, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $white;
+    margin-bottom: $spacing-6;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(md) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: rgba($white, 0.9);
+    line-height: $line-height-relaxed;
+    max-width: 800px;
+    margin: 0 auto $spacing-10;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(md) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  &__features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-4;
+    max-width: 700px;
+    margin: 0 auto $spacing-10;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-6;
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    color: $white;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    text-align: left;
+  }
+
+  &__check {
+    flex-shrink: 0;
+    color: rgba($white, 0.8);
+  }
+
+  &__button {
+    @include button-base;
+    background-color: $white;
+    color: $primary-navy;
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-2;
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-lg;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      background-color: $gray-100;
+      transform: translateY(-2px);
+      box-shadow: $shadow-xl;
+    }
+
+    svg {
+      transition: transform $transition-base;
+    }
+
+    &:hover svg {
+      transform: translateX(4px);
+    }
+  }
+}

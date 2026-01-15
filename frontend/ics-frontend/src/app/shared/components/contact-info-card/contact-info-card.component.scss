@@ -1,0 +1,139 @@
+@use '../../../../styles/index' as *;
+
+.contact-info-card {
+  display: flex;
+  gap: $spacing-4;
+  align-items: flex-start;
+
+  @include respond-to(md) {
+    gap: $spacing-6;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include respond-to(md) {
+      width: 56px;
+      height: 56px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+
+      @include respond-to(md) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &--email {
+      background-color: rgba($primary-gold-light, 0.1);
+      color: $primary-gold-light;
+    }
+
+    &--phone {
+      background-color: rgba($primary-gold-light, 0.1);
+      color: $primary-gold-light;
+    }
+
+    &--location {
+      background-color: rgba($primary-gold-light, 0.1);
+      color: $primary-gold-light;
+    }
+
+    &--whatsapp {
+      background-color: rgba(#25D366, 0.1);
+      color: #25D366;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0; // Allows text to wrap properly
+  }
+
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin: 0 0 $spacing-2;
+
+    @include respond-to(md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__primary {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin: 0 0 $spacing-1;
+    word-break: break-word;
+
+    @include respond-to(md) {
+      font-size: $font-size-base;
+      margin: 0 0 $spacing-2;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $primary-navy;
+    transition: all 0.3s ease;
+    word-break: break-word;
+
+    &:hover {
+      color: $primary-gold-light;
+    }
+
+    &--whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-2;
+      flex-wrap: wrap;
+
+      svg {
+        flex-shrink: 0;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        color: #25D366;
+
+        svg {
+          transform: translate(2px, -2px);
+        }
+      }
+    }
+  }
+
+  &__secondary {
+    font-size: $font-size-xs;
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.5;
+
+    @include respond-to(md) {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__tertiary {
+    font-size: $font-size-xs;
+    color: $text-secondary;
+    margin: $spacing-1 0 0;
+    line-height: 1.5;
+
+    @include respond-to(md) {
+      font-size: $font-size-sm;
+      margin: $spacing-2 0 0;
+    }
+  }
+}
