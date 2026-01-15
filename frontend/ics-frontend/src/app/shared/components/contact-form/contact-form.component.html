@@ -1,0 +1,111 @@
+<div class="contact-form">
+  <form class="contact-form__form" (ngSubmit)="onSubmit()">
+    <div class="contact-form__field">
+      <label class="contact-form__label" for="userType">I am a:</label>
+      <select
+        class="contact-form__select"
+        id="userType"
+        name="userType"
+        [(ngModel)]="formData.userType"
+        (ngModelChange)="onUserTypeChange()"
+        required>
+        <option value="company">Company looking to hire</option>
+        <option value="client">Client</option>
+        <option value="applicant">Applicant</option>
+      </select>
+    </div>
+
+    <div class="contact-form__field">
+      <label class="contact-form__label" for="fullName">Full Name</label>
+      <input
+        class="contact-form__input"
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="Enter your full name"
+        [(ngModel)]="formData.fullName"
+        required>
+    </div>
+
+    <div class="contact-form__field">
+      <label class="contact-form__label" for="email">Email Address</label>
+      <input
+        class="contact-form__input"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="your.email@example.com"
+        [(ngModel)]="formData.email"
+        required>
+    </div>
+
+    <div class="contact-form__field">
+      <label class="contact-form__label" for="phone">Phone Number</label>
+      <input
+        class="contact-form__input"
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="+1 (555) 123-4567"
+        [(ngModel)]="formData.phone"
+        required>
+    </div>
+
+    @if (formData.userType === 'company') {
+      <div class="contact-form__field">
+        <label class="contact-form__label" for="companyName">Company Name</label>
+        <input
+          class="contact-form__input"
+          type="text"
+          id="companyName"
+          name="companyName"
+          placeholder="Your company name"
+          [(ngModel)]="formData.companyName">
+      </div>
+    }
+
+    <div class="contact-form__field contact-form__field--full">
+      <label class="contact-form__label" for="service">
+        @if (formData.userType === 'applicant') {
+          Position Interested In
+        } @else {
+          Service Interested In
+        }
+      </label>
+      <select
+        class="contact-form__select"
+        id="service"
+        name="service"
+        [(ngModel)]="formData.service"
+        required>
+        <option value="" disabled selected>Select a service</option>
+        @for (service of availableServices; track service.id) {
+          <option [value]="service.id">{{ service.label }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="contact-form__field contact-form__field--full">
+      <label class="contact-form__label" for="message">Message</label>
+      <textarea
+        class="contact-form__textarea"
+        id="message"
+        name="message"
+        rows="5"
+        placeholder="Tell us about your needs or questions..."
+        [(ngModel)]="formData.message"
+        required></textarea>
+    </div>
+
+    <button type="submit" class="contact-form__submit">
+      {{ submitButtonText }}
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 10L17 10M17 10L11 4M17 10L11 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <p class="contact-form__privacy">
+      By submitting this form, you agree to our privacy policy and terms of service.
+    </p>
+  </form>
+</div>

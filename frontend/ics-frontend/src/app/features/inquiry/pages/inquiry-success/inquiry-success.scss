@@ -1,0 +1,203 @@
+@use '../../../../../styles/index' as *;
+
+.inquiry-success {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-12 0;
+
+  @include respond-to('mobile') {
+    padding: $spacing-8 0;
+  }
+
+  &__container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 $spacing-8;
+
+    @include respond-to('mobile') {
+      padding: 0 $spacing-6;
+    }
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__icon {
+    margin: 0 auto $spacing-8;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__checkmark {
+    display: block;
+  }
+
+  &__circle {
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+    animation: drawCircle 0.6s ease-out forwards;
+  }
+
+  &__check {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: drawCheck 0.3s ease-out 0.6s forwards;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin: 0 0 $spacing-6;
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+
+    @include respond-to('mobile') {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__message {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0 0 $spacing-12;
+    animation: fadeInUp 0.6s ease-out 1s both;
+
+    @include respond-to('mobile') {
+      font-size: $font-size-base;
+      margin: 0 0 $spacing-8;
+    }
+  }
+
+  &__info {
+    background-color: $bg-secondary;
+    border-radius: $radius-xl;
+    padding: $spacing-8;
+    margin-bottom: $spacing-10;
+    text-align: left;
+    animation: fadeInUp 0.6s ease-out 1.2s both;
+
+    @include respond-to('mobile') {
+      padding: $spacing-6;
+    }
+  }
+
+  &__info-title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin: 0 0 $spacing-6;
+
+    @include respond-to('mobile') {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+  }
+
+  &__step {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-4;
+    font-size: $font-size-base;
+    color: $text-secondary;
+    line-height: 1.5;
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: $accent-green;
+    }
+
+    span {
+      flex: 1;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-4;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s ease-out 1.4s both;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-3;
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    border-radius: $radius-md;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &--primary {
+      color: $white;
+      background: linear-gradient(135deg, $primary-gold 0%, $primary-navy 100%);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba($primary-navy, 0.3);
+      }
+    }
+
+    &--secondary {
+      color: $primary-navy;
+      background-color: $white;
+      border: 2px solid $primary-navy;
+
+      &:hover {
+        background-color: rgba($primary-navy, 0.05);
+        transform: translateY(-2px);
+      }
+    }
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+      transform: translateX(4px);
+    }
+
+    &--primary:hover svg {
+      transform: translateX(-4px);
+    }
+  }
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,118 @@
+@use '../../../../styles/index' as *;
+@use 'sass:color';
+
+.process-steps {
+  padding: $spacing-20 0;
+  background-color: $bg-secondary;
+
+  &__container {
+    @include container($container-xl);
+    text-align: center;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: $spacing-2 $spacing-4;
+    background-color: rgba($primary-navy, 0.1);
+    color: $primary-navy;
+    border-radius: $radius-full;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-6;
+  }
+
+  &__title {
+    @include heading-2;
+    margin-bottom: $spacing-6;
+  }
+
+  &__description {
+    @include body-large;
+    color: $text-secondary;
+    max-width: 800px;
+    margin: 0 auto $spacing-16;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-8;
+    align-items: stretch;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.step-card {
+  position: relative;
+  background: linear-gradient(135deg, 
+    $primary-gold 0%, 
+    color.adjust($primary-gold, $lightness: -8%) 100%);
+  border-radius: $radius-xl;
+  padding: $spacing-12 $spacing-8 $spacing-8;
+  box-shadow: $shadow-base;
+  transition: all $transition-base;
+  text-align: left;
+  overflow: visible;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  &__image {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+    transition: transform $transition-base;
+    pointer-events: none;
+  }
+
+  &:hover &__image {
+    transform: translateX(-50%) scale(1.05);
+  }
+
+  &__number {
+    position: absolute;
+    top: $spacing-4;
+    right: $spacing-6;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: rgba($white, 0.25);
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $white;
+    margin-bottom: $spacing-3;
+    margin-top: $spacing-16;
+  }
+
+  &__description {
+    @include body-base;
+    color: $white;
+    line-height: $line-height-relaxed;
+    opacity: 0.95;
+  }
+}
+
+.step-arrow {
+  display: none;
+}

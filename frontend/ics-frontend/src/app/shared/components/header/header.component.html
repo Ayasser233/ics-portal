@@ -1,0 +1,110 @@
+<header class="header">
+  <div class="header__container">
+    <!-- Logo -->
+    <a routerLink="/" class="header__logo">
+      <img src="LOGO.svg" alt="ICS Portal Logo" class="header__logo-image" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="header__nav">
+      @for (item of menuItems; track item.label) {
+        @if (item.submenu) {
+          <div class="header__nav-dropdown">
+            <a
+              [routerLink]="item.path"
+              routerLinkActive="header__nav-link--active"
+              class="header__nav-link header__nav-link--has-submenu"
+            >
+              {{ item.label }}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <div class="header__submenu">
+              @for (subitem of item.submenu; track subitem.path) {
+                <a
+                  [routerLink]="subitem.path"
+                  routerLinkActive="header__submenu-link--active"
+                  class="header__submenu-link"
+                >
+                  {{ subitem.label }}
+                </a>
+              }
+            </div>
+          </div>
+        } @else {
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="header__nav-link--active"
+            [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+            class="header__nav-link"
+          >
+            {{ item.label }}
+          </a>
+        }
+      }
+    </nav>
+
+    <!-- CTA Button -->
+    <button class="header__cta" routerLink="/contact-us">
+      Get Started
+    </button>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="header__menu-toggle"
+      (click)="toggleMenu()"
+      [class.header__menu-toggle--active]="isMenuOpen"
+      aria-label="Toggle menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav class="header__mobile-nav" [class.header__mobile-nav--open]="isMenuOpen">
+    @for (item of menuItems; track item.label) {
+      @if (item.submenu) {
+        <div class="header__mobile-dropdown">
+          <button
+            class="header__mobile-nav-link header__mobile-nav-link--has-submenu"
+            [class.header__mobile-nav-link--open]="isSubmenuOpen(item.label)"
+            (click)="toggleSubmenu(item.label)"
+          >
+            {{ item.label }}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="header__mobile-submenu" [class.header__mobile-submenu--open]="isSubmenuOpen(item.label)">
+            @for (subitem of item.submenu; track subitem.path) {
+              <a
+                [routerLink]="subitem.path"
+                routerLinkActive="header__mobile-submenu-link--active"
+                class="header__mobile-submenu-link"
+                (click)="closeMenu()"
+              >
+                {{ subitem.label }}
+              </a>
+            }
+          </div>
+        </div>
+      } @else {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="header__mobile-nav-link--active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+          class="header__mobile-nav-link"
+          (click)="closeMenu()"
+        >
+          {{ item.label }}
+        </a>
+      }
+    }
+    <button class="header__mobile-cta" routerLink="/contact-us" (click)="closeMenu()">
+      Get Started
+    </button>
+  </nav>
+</header>

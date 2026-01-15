@@ -1,0 +1,32 @@
+<section class="process-steps">
+  <div class="process-steps__container">
+    @if (badge) {
+      <span class="process-steps__badge">{{ badge }}</span>
+    }
+
+    @if (title) {
+      <h2 class="process-steps__title">{{ title }}</h2>
+    }
+
+    @if (description) {
+      <p class="process-steps__description">{{ description }}</p>
+    }
+
+    <div class="process-steps__grid">
+      @for (step of steps; track step.number) {
+        <div class="step-card">
+          @if (step.iconImage) {
+            <img
+              [src]="step.iconImage"
+              [alt]="step.title + ' icon'"
+              class="step-card__image"
+            />
+          }
+          <span class="step-card__number">{{ step.number }}</span>
+          <h3 class="step-card__title">{{ step.title }}</h3>
+          <p class="step-card__description">{{ step.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

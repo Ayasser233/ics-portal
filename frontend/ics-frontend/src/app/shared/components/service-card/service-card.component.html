@@ -1,0 +1,36 @@
+<a [routerLink]="service.link" class="service-card">
+  <div class="service-card__image">
+    @if (service.icon === 'full-time') {
+      <img src="icons/3d-Icons/full-time.png" alt="{{ service.title }}" />
+    }
+    @if (service.icon === 'part-time') {
+      <img src="icons/3d-Icons/part-time.png" alt="{{ service.title }}" />
+    }
+    @if (service.icon === 'baby-sitters') {
+      <img src="icons/3d-Icons/baby-sitters.png" alt="{{ service.title }}" />
+    }
+    @if (service.icon === 'cooks') {
+      <img src="icons/3d-Icons/cooks.png" alt="{{ service.title }}" />
+    }
+    @if (service.icon === 'drivers') {
+      <img src="icons/3d-Icons/drivers.png" alt="{{ service.title }}" />
+    }
+  </div>
+
+  <div class="service-card__content">
+    <h3 class="service-card__title">{{ service.title }}</h3>
+    <p class="service-card__description">{{ service.description }}</p>
+
+    <ul class="service-card__features">
+      @for (feature of service.features; track feature) {
+        <li class="service-card__feature">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>{{ feature }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</a>

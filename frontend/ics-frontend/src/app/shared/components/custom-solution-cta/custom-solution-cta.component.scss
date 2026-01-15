@@ -1,0 +1,77 @@
+@use '../../../../styles/index' as *;
+@use 'sass:color';
+
+.custom-solution-cta {
+  padding: $spacing-16;
+  margin: $spacing-16 0;
+
+  &__container {
+    @include container($container-lg);
+  }
+
+  &__content {
+    background: linear-gradient(135deg, $primary-navy 0%, $primary-gold 100%);
+    border-radius: $radius-2xl;
+    padding: $spacing-12;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    @include respond-to(md) {
+      padding: $spacing-16;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 70% 30%, rgba($white, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $white;
+    margin-bottom: $spacing-4;
+    position: relative;
+    z-index: 1;
+
+    @include respond-to(md) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: rgba($white, 0.9);
+    line-height: $line-height-relaxed;
+    max-width: 700px;
+    margin: 0 auto $spacing-8;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__button {
+    @include button-base;
+    background-color: $white;
+    color: $primary-navy;
+    display: inline-flex;
+    align-items: center;
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      background-color: $gray-100;
+      transform: translateY(-2px);
+      box-shadow: $shadow-xl;
+    }
+  }
+}

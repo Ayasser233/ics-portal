@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "TRZMzuQps6zdaEptm3QpoXEsKWc6GBQvufc+0BEtb+A=",
+  "Source": "IcsBackend",
+  "BasePath": "_content/IcsBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

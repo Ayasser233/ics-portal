@@ -1,0 +1,19 @@
+<section class="content-section" [class.content-section--dark]="theme === 'dark'">
+  <div class="content-section__container">
+    @if (badge) {
+      <span class="content-section__badge">{{ badge }}</span>
+    }
+
+    @if (title) {
+      <h2 class="content-section__title">{{ title }}</h2>
+    }
+
+    @if (description) {
+      <p class="content-section__description" [innerHTML]="description"></p>
+    }
+
+    <div class="content-section__content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</section>

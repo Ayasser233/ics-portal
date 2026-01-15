@@ -1,0 +1,45 @@
+<section class="hero">
+  <video class="hero__video" autoplay muted loop playsinline>
+    <source src="hero-section-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero__overlay"></div>
+  <div class="hero__container">
+    <div class="hero__content">
+      @if (badge) {
+        <span class="hero__badge">{{ badge }}</span>
+      }
+
+      <h1 class="hero__title">{{ title }}</h1>
+
+      <p class="hero__description">{{ description }}</p>
+
+      <div class="hero__actions">
+        @if (primaryButtonText) {
+          <a [href]="primaryButtonLink" class="hero__button hero__button--primary">
+            {{ primaryButtonText }}
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        }
+        @if (secondaryButtonText) {
+          <a [href]="secondaryButtonLink" class="hero__button hero__button--secondary">
+            {{ secondaryButtonText }}
+          </a>
+        }
+      </div>
+
+      @if (stats.length > 0) {
+        <div class="hero__stats">
+          @for (stat of stats; track stat.value) {
+            <div class="hero__stat">
+              <div class="hero__stat-value">{{ stat.value }}</div>
+              <div class="hero__stat-label">{{ stat.label }}</div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

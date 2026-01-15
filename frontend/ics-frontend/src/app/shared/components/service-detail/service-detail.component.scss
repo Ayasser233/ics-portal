@@ -1,0 +1,155 @@
+@use '../../../../styles/index' as *;
+@use 'sass:color';
+
+.service-detail {
+  padding: $spacing-20 0;
+  background-color: $bg-secondary;
+  min-height: 100vh;
+
+  &__container {
+    @include container($container-lg);
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-16;
+  }
+
+  &__icon {
+    width: 96px;
+    height: 96px;
+    border-radius: $radius-2xl;
+    background: linear-gradient(135deg, $primary-navy 0%, color.adjust($primary-navy, $lightness: -10%) 100%);
+    color: $white;
+    @include flex-center;
+    margin: 0 auto $spacing-6;
+  }
+
+  &__title {
+    @include heading-1;
+    margin-bottom: $spacing-6;
+  }
+
+  &__description {
+    @include body-large;
+    color: $text-secondary;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-8;
+    margin-bottom: $spacing-16;
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    background-color: $white;
+    border-radius: $radius-xl;
+    padding: $spacing-8;
+    box-shadow: $shadow-base;
+  }
+
+  &__card-title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: $spacing-6;
+    padding-bottom: $spacing-4;
+    border-bottom: 2px solid $primary-navy;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-3;
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-4;
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: $primary-navy;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__cta {
+    background: linear-gradient(135deg, $primary-navy 0%, $primary-navy 100%);
+    border-radius: $radius-2xl;
+    padding: $spacing-12;
+    text-align: center;
+    color: $white;
+  }
+
+  &__cta-title {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-4;
+  }
+
+  &__cta-description {
+    font-size: $font-size-lg;
+    color: rgba($white, 0.9);
+    margin-bottom: $spacing-8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+    align-items: center;
+
+    @include respond-to(sm) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  &__cta-button {
+    @include button-base;
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+
+    &--primary {
+      background-color: $white;
+      color: $primary-navy;
+
+      &:hover {
+        background-color: $gray-100;
+        transform: translateY(-2px);
+        box-shadow: $shadow-xl;
+      }
+    }
+
+    &--secondary {
+      background-color: transparent;
+      color: $white;
+      border: 2px solid $white;
+
+      &:hover {
+        background-color: rgba($white, 0.1);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

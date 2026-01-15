@@ -1,0 +1,15 @@
+<section class="services-page">
+  <div class="services-page__header">
+    <span class="services-page__badge">What We Offer</span>
+    <h1 class="services-page__title">Our Services</h1>
+    <p class="services-page__description">
+      ICS provides a wide range of domestic staffing solutions to meet different household needs.
+    </p>
+  </div>
+
+  <div class="services-page__grid">
+    @for (service of services; track service.title) {
+      <app-service-card [service]="service" />
+    }
+  </div>
+</section>

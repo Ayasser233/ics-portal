@@ -1,0 +1,26 @@
+<app-hero-section
+  badge="Ethical Workforce Solutions"
+  title="Professional Workforce Solutions Built on Respect & Trust"
+  description="We connect exceptional talent with forward-thinking companies through a humane, transparent recruitment approach that values people over profits."
+  primaryButtonText="Hire Through ICS"
+  primaryButtonLink="/how-to-hire"
+  secondaryButtonText="Submit an Inquiry"
+  secondaryButtonLink="/contact-us"
+  [stats]="heroStats"
+/>
+
+<app-content-section
+  badge="Who We Are"
+  title="Trusted Domestic Staffing Solutions from the Philippines"
+  [description]="'ICS Recruitment Agency is a professional recruitment company based in the Philippines, specializing in providing <strong>high-quality domestic and household staff</strong> to families and organizations. We connect reliable, well-trained, and carefully screened workers with employers who value trust, professionalism, and long-term partnerships. With deep industry experience and a strong ethical recruitment framework, ICS ensures a smooth, transparent, and secure hiring journey from candidate selection to deployment.'">
+  <div class="mission-card">
+    <h2 class="mission-card__title">Our Mission</h2>
+    <p class="mission-card__description">
+      To provide <strong>ethical, reliable, and high-quality recruitment services</strong> by matching skilled domestic workers with employers while ensuring fairness, dignity, and compliance at every step.
+    </p>
+  </div>
+</app-content-section>
+
+<app-content-section title="Our Core Values" theme="light">
+  <app-feature-grid [features]="coreValues" [columns]="5" />
+</app-content-section>
