@@ -24,15 +24,10 @@
     font-weight: $font-weight-semibold;
     font-size: $font-size-lg;
 
-    &-icon {
-      background-color: $primary-navy;
-      color: $white;
-      width: 48px;
-      height: 48px;
-      border-radius: $radius-md;
-      @include flex-center;
-      font-weight: $font-weight-bold;
-      font-size: $font-size-base;
+    &-image {
+      width: 86px;
+      height: 86px;
+      object-fit: contain;
     }
 
     &-text {
