@@ -3,31 +3,81 @@
 
 .service-detail {
   padding: $spacing-20 0;
-  background-color: $bg-secondary;
+  background: linear-gradient(180deg, $white 0%, $gray-50 50%, $white 100%);
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  // Decorative background elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba($primary-gold, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba($primary-navy, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
 
   &__container {
     @include container($container-lg);
+    position: relative;
+    z-index: 1;
   }
 
   &__header {
     text-align: center;
     margin-bottom: $spacing-16;
+    animation: fadeInDown 0.8s ease;
   }
 
   &__icon {
-    width: 96px;
-    height: 96px;
-    border-radius: $radius-2xl;
-    background: linear-gradient(135deg, $primary-navy 0%, color.adjust($primary-navy, $lightness: -10%) 100%);
-    color: $white;
+    width: 200px;
+    height: 200px;
     @include flex-center;
     margin: 0 auto $spacing-6;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 
   &__title {
     @include heading-1;
     margin-bottom: $spacing-6;
+    color: $primary-navy;
+    position: relative;
+    display: inline-block;
+
+    // Gold underline
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -$spacing-3;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, $primary-gold 0%, $primary-gold-light 50%, $primary-gold 100%);
+      border-radius: $radius-full;
+      box-shadow: 0 2px 8px rgba($primary-gold, 0.4);
+    }
   }
 
   &__description {
@@ -35,6 +85,8 @@
     color: $text-secondary;
     max-width: 700px;
     margin: 0 auto;
+    padding-top: $spacing-4;
+    line-height: $line-height-relaxed;
   }
 
   &__grid {
@@ -49,19 +101,62 @@
   }
 
   &__card {
-    background-color: $white;
-    border-radius: $radius-xl;
-    padding: $spacing-8;
-    box-shadow: $shadow-base;
+    background: $white;
+    border-radius: $radius-2xl;
+    padding: $spacing-10;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba($primary-navy, 0.08), 0 1px 3px rgba($primary-navy, 0.06);
+
+    // Gold accent on top
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, $primary-gold 0%, $primary-gold-light 50%, $primary-gold 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: $primary-gold;
+      box-shadow:
+        0 12px 20px rgba($primary-gold, 0.2),
+        0 6px 10px rgba($primary-navy, 0.1);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .service-detail__card-title {
+        color: $primary-gold-dark;
+      }
+    }
+
+    // Stagger animation
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: #{$i * 0.1}s;
+        opacity: 0;
+      }
+    }
   }
 
   &__card-title {
     font-size: $font-size-xl;
-    font-weight: $font-weight-semibold;
-    color: $text-primary;
+    font-weight: $font-weight-bold;
+    color: $primary-navy;
     margin-bottom: $spacing-6;
     padding-bottom: $spacing-4;
-    border-bottom: 2px solid $primary-navy;
+    border-bottom: 3px solid $primary-gold;
+    transition: color 0.3s ease;
   }
 
   &__list {
@@ -77,11 +172,13 @@
     color: $text-secondary;
     line-height: $line-height-relaxed;
     margin-bottom: $spacing-4;
+    font-size: $font-size-base;
 
     svg {
       flex-shrink: 0;
       margin-top: 2px;
-      color: $primary-navy;
+      color: $primary-gold;
+      filter: drop-shadow(0 1px 2px rgba($primary-gold, 0.3));
     }
 
     &:last-child {
@@ -90,26 +187,60 @@
   }
 
   &__cta {
-    background: linear-gradient(135deg, $primary-navy 0%, $primary-navy 100%);
-    border-radius: $radius-2xl;
-    padding: $spacing-12;
+    background: linear-gradient(135deg, $primary-navy 0%, color.scale($primary-navy, $lightness: -5%) 100%);
+    border-radius: $radius-lg;
+    padding: $spacing-16 $spacing-12;
     text-align: center;
-    color: $white;
+    color: $white !important;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba($primary-navy, 0.3);
+
+    // Decorative elements
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba($primary-gold, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba($primary-gold, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
   }
 
   &__cta-title {
-    font-size: $font-size-3xl;
+    font-size: clamp($font-size-2xl, 4vw, $font-size-4xl);
     font-weight: $font-weight-bold;
+    color: $white;
     margin-bottom: $spacing-4;
+    position: relative;
+    z-index: 1;
   }
 
   &__cta-description {
     font-size: $font-size-lg;
-    color: rgba($white, 0.9);
-    margin-bottom: $spacing-8;
+    color: rgba($white, 0.95);
+    margin-bottom: $spacing-10;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    line-height: $line-height-relaxed;
+    position: relative;
+    z-index: 1;
   }
 
   &__cta-buttons {
@@ -117,6 +248,8 @@
     flex-direction: column;
     gap: $spacing-4;
     align-items: center;
+    position: relative;
+    z-index: 1;
 
     @include respond-to(sm) {
       flex-direction: row;
@@ -126,18 +259,21 @@
 
   &__cta-button {
     @include button-base;
-    padding: $spacing-4 $spacing-8;
+    padding: $spacing-4 $spacing-10;
     font-size: $font-size-lg;
     font-weight: $font-weight-semibold;
+    border-radius: $radius-xl;
+    transition: all 0.3s ease;
 
     &--primary {
-      background-color: $white;
+      background: linear-gradient(135deg, $primary-gold 0%, $primary-gold-light 100%);
       color: $primary-navy;
+      border: none;
+      box-shadow: 0 4px 12px rgba($primary-gold, 0.4);
 
       &:hover {
-        background-color: $gray-100;
         transform: translateY(-2px);
-        box-shadow: $shadow-xl;
+        box-shadow: 0 8px 20px rgba($primary-gold, 0.5);
       }
     }
 
@@ -149,7 +285,31 @@
       &:hover {
         background-color: rgba($white, 0.1);
         transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($white, 0.2);
       }
     }
   }
 }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

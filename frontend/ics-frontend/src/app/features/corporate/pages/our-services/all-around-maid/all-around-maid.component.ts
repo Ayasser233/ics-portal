@@ -13,7 +13,7 @@ export class AllAroundMaid {
     title: 'Full-Time Domestic Workers',
     description:
       'Comprehensive household management with dedicated staff for all your domestic needs. Our full-time domestic workers provide reliable, professional service to keep your home running smoothly.',
-    icon: 'home',
+    icon: 'full-time',
     features: [
       'Housekeeping and cleaning',
       'Laundry and ironing',

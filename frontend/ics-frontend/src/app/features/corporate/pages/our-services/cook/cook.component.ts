@@ -13,7 +13,7 @@ export class Cook {
     title: 'Cook',
     description:
       'Professional cooking services to bring delicious, home-cooked meals to your table. Our cooks combine culinary skills with an understanding of nutrition and dietary needs.',
-    icon: 'chef',
+    icon: 'cooks',
     features: [
       'Daily meal preparation for all family members',
       'Menu planning and recipe variety',
