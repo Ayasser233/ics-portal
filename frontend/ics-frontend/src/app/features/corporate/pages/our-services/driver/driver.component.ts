@@ -13,7 +13,7 @@ export class Driver {
     title: 'Driver',
     description:
       'Reliable and professional driving services for all your transportation needs. Our drivers ensure safe, punctual, and comfortable journeys for you and your family.',
-    icon: 'car',
+    icon: 'drivers',
     features: [
       'Daily commute and regular routes',
       'School runs and children pickups',

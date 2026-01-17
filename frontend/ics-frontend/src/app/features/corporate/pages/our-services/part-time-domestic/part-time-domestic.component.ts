@@ -13,7 +13,7 @@ export class PartTimeDomestic {
     title: 'Part-Time Domestic Workers',
     description:
       'Flexible staffing solutions for short-term or specific household needs. Our part-time domestic workers provide reliable service on your schedule.',
-    icon: 'clock',
+    icon: 'part-time',
     features: [
       'Flexible work schedules',
       'Daily or hourly assistance',

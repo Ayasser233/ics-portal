@@ -13,7 +13,7 @@ export class Babysitter {
     title: 'Babysitters',
     description:
       'Experienced and caring childcare professionals for your peace of mind. Our babysitters provide nurturing, safe, and engaging care for your children.',
-    icon: 'baby',
+    icon: 'baby-sitters',
     features: [
       'Childcare and supervision',
       'Feeding, hygiene, and daily routines',
