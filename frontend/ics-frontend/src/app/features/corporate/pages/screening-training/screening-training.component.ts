@@ -24,31 +24,31 @@ import {
 export class ScreeningTraining {
   screeningSteps: ScreeningStep[] = [
     {
-      icon: 'user-check',
+      icon: 'icons/3d-Icons/Initial Interview.svg',
       title: 'Initial Interview & Skills Assessment',
       description:
         'Comprehensive evaluation of qualifications, experience, and professional capabilities.',
     },
     {
-      icon: 'clipboard-list',
+      icon: 'icons/3d-Icons/Background and experience Verification.svg',
       title: 'Background and Experience Verification',
       description:
         'Thorough verification of credentials, references, and employment history.',
     },
     {
-      icon: 'heart',
+      icon: 'icons/3d-Icons/Medical Screening.svg',
       title: 'Medical Screening',
       description:
         'General health check-up, communicable disease testing, and physical and mental fitness assessment.',
     },
     {
-      icon: 'shield',
+      icon: 'icons/3d-Icons/Character Check.svg',
       title: 'Character & Reference Checks',
       description:
         'Verification of character, integrity, and professional references from previous employers.',
     },
     {
-      icon: 'award',
+      icon: 'icons/3d-Icons/Pre-deployment.svg',
       title: 'Pre-Deployment Orientation & Training',
       description:
         'Comprehensive preparation including workplace expectations, cultural awareness, and job-specific training.',
@@ -57,78 +57,40 @@ export class ScreeningTraining {
 
   approachItems: ApproachItem[] = [
     {
-      icon: 'check-circle',
-      iconColor: 'green',
-      title: 'Ethical and transparent recruitment',
+      image: 'images/1.jpg',
+      mobileImage: 'images/phone/1.jpg',
+      title: 'Ethical and Transparent Recruitment',
       description:
-        'We operate with complete honesty and fairness in all our recruitment practices.',
+        'We operate with complete honesty and fairness in all our recruitment practices, ensuring transparency at every step of the process.',
     },
     {
-      icon: 'users',
-      iconColor: 'blue',
-      title: 'Carefully screened Filipino workers',
+      image: 'images/2.jpg',
+      mobileImage: 'images/phone/2.jpg',
+      title: 'Carefully Screened Filipino Workers',
       description:
-        'All candidates undergo rigorous screening to ensure quality and reliability.',
+        'All candidates undergo rigorous screening to ensure quality and reliability, meeting the highest standards of professional excellence.',
     },
     {
-      icon: 'handshake',
-      iconColor: 'purple',
-      title: 'End-to-end hiring support',
+      image: 'images/3.jpg',
+      mobileImage: 'images/phone/3.jpg',
+      title: 'End-to-End Hiring Support',
       description:
-        'Complete assistance from candidate selection through to successful deployment.',
+        'Complete assistance from candidate selection through to successful deployment, providing comprehensive support throughout the journey.',
     },
     {
-      icon: 'heart',
-      iconColor: 'red',
-      title: 'Commitment to worker welfare',
+      image: 'images/4.jpg',
+      mobileImage: 'images/phone/4.jpg',
+      title: 'Commitment to Worker Welfare',
       description:
-        'We prioritize the well-being and fair treatment of all workers in our program.',
+        'We prioritize the well-being and fair treatment of all workers in our program, ensuring their rights and dignity are protected.',
     },
     {
-      icon: 'globe',
-      iconColor: 'dark',
-      title: 'Trusted by families and employers worldwide',
+      image: 'images/5.jpg',
+      mobileImage: 'images/phone/5.jpg',
+      title: 'Trusted by Families and Employers Worldwide',
       description:
-        'Proven track record of successful placements and satisfied clients globally.',
+        'Proven track record of successful placements and satisfied clients globally, building lasting relationships based on trust and quality service.',
     },
   ];
 
-  trainingPrograms: TrainingProgram[] = [
-    {
-      icon: 'check',
-      title: 'Professional Skills Development',
-      description:
-        'Enhancing core competencies including communication, teamwork, and problem-solving.',
-    },
-    {
-      icon: 'check',
-      title: 'Industry-Specific Training',
-      description:
-        'Specialized knowledge and skills training for various industry sectors.',
-    },
-    {
-      icon: 'check',
-      title: 'Workplace Readiness',
-      description:
-        'Preparation for professional environments including workplace etiquette and expectations.',
-    },
-    {
-      icon: 'check',
-      title: 'Safety & Compliance',
-      description:
-        'Essential training on workplace safety, regulations, and compliance requirements.',
-    },
-    {
-      icon: 'check',
-      title: 'Career Advancement',
-      description:
-        'Ongoing professional development opportunities for career growth and progression.',
-    },
-    {
-      icon: 'check',
-      title: 'Well-being Support',
-      description:
-        'Resources and guidance for maintaining professional and personal well-being.',
-    },
-  ];
 }
