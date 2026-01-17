@@ -4,34 +4,55 @@
       <h2 class="approach-section__title">{{ title }}</h2>
     }
 
-    <div class="approach-section__grid">
-      @for (item of items; track item.title) {
-        <div class="approach-card">
-          <div class="approach-card__icon" [ngClass]="'approach-card__icon--' + item.iconColor">
-            @if (item.icon === 'check-circle') {
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            }
-            @if (item.icon === 'trending-up') {
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <polyline points="17 6 23 6 23 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            }
-            @if (item.icon === 'users-support') {
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+    @if (items.length > 0) {
+      <div class="slider-wrapper">
+        <!-- Slider Container -->
+        <div class="slider-container">
+          @for (item of items; track item.title; let i = $index) {
+            <div class="slide" [class.active]="i === currentIndex">
+              <div class="slide__image-wrapper">
+                <picture>
+                  @if (item.mobileImage) {
+                    <source [srcset]="item.mobileImage" media="(max-width: 768px)" />
+                  }
+                  <img [src]="item.image" [alt]="item.title" class="slide__image" />
+                </picture>
+                <div class="slide__overlay"></div>
+              </div>
+              <div class="slide__content">
+                <h3 class="slide__title">{{ item.title }}</h3>
+                <p class="slide__description">{{ item.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Navigation Arrows -->
+        @if (items.length > 1) {
+          <button class="slider-nav slider-nav--prev" (click)="prev()" aria-label="Previous slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="slider-nav slider-nav--next" (click)="next()" aria-label="Next slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <!-- Indicators -->
+          <div class="slider-indicators">
+            @for (item of items; track item.title; let i = $index) {
+              <button
+                class="slider-indicator"
+                [class.active]="i === currentIndex"
+                (click)="goToSlide(i)"
+                [attr.aria-label]="'Go to slide ' + (i + 1)"
+              ></button>
             }
           </div>
-          <h3 class="approach-card__title">{{ item.title }}</h3>
-          <p class="approach-card__description">{{ item.description }}</p>
-        </div>
-      }
-    </div>
+        }
+      </div>
+    }
   </div>
 </section>

@@ -1,8 +1,9 @@
 @use '../../../../styles/index' as *;
 
 .approach-section {
-  padding: $spacing-16 0;
-  background-color: $bg-secondary;
+  padding: $spacing-20 0;
+  background: linear-gradient(180deg, $white 0%, $gray-50 100%);
+  position: relative;
 
   &__container {
     @include container($container-xl);
@@ -11,65 +12,217 @@
   &__title {
     @include heading-2;
     text-align: center;
-    margin-bottom: $spacing-12;
-  }
+    margin-bottom: $spacing-16;
+    color: $primary-navy;
+    position: relative;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $spacing-8;
-
-    @include respond-to(md) {
-      grid-template-columns: repeat(3, 1fr);
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, $primary-gold 0%, $primary-gold-light 100%);
+      margin: $spacing-4 auto 0;
+      border-radius: $radius-full;
     }
   }
 }
 
-.approach-card {
-  background-color: $white;
-  border-radius: $radius-xl;
-  padding: $spacing-10;
-  text-align: center;
-  transition: all $transition-base;
+.slider-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-lg;
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: $radius-lg;
+  box-shadow: 0 25px 50px -12px rgba($primary-navy, 0.25);
+
+  @include respond-to(md) {
+    height: 500px;
+  }
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out, visibility 0s 0.8s;
+  pointer-events: none;
+  z-index: 1;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    pointer-events: all;
+    z-index: 2;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out, visibility 0s;
   }
 
-  &__icon {
-    width: 96px;
-    height: 96px;
-    border-radius: $radius-full;
-    @include flex-center;
-    margin: 0 auto $spacing-6;
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-    &--green {
-      background-color: #10b981;
-      color: $white;
-    }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
-    &--blue {
-      background-color: $primary-gold;
-      color: $white;
-    }
+  &__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba($primary-navy, 0.95) 0%, rgba($primary-navy, 0.7) 50%, transparent 100%);
+    pointer-events: none;
+  }
 
-    &--dark {
-      background-color: $primary-navy;
-      color: $white;
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $spacing-10;
+    color: $white;
+    z-index: 2;
+
+    @include respond-to(md) {
+      padding: $spacing-12;
     }
   }
 
   &__title {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-semibold;
-    color: $text-primary;
+    font-size: clamp($font-size-2xl, 4vw, $font-size-4xl);
+    font-weight: $font-weight-bold;
     margin-bottom: $spacing-4;
+    color: $white;
+    text-shadow: 0 2px 8px rgba($black, 0.3);
+    line-height: 1.2;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+
+    .slide.active & {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   &__description {
-    @include body-base;
-    color: $text-secondary;
+    font-size: clamp($font-size-base, 2vw, $font-size-lg);
     line-height: $line-height-relaxed;
+    color: rgba($white, 0.95);
+    max-width: 700px;
+    text-shadow: 0 1px 4px rgba($black, 0.3);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+
+    .slide.active & {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-full;
+  background: rgba($white, 0.95);
+  border: 2px solid $primary-gold;
+  color: $primary-navy;
+  @include flex-center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba($primary-navy, 0.2);
+
+  &:hover {
+    background: $primary-gold;
+    color: $white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba($primary-gold, 0.4);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  &--prev {
+    left: $spacing-4;
+
+    @include respond-to(md) {
+      left: -$spacing-8;
+    }
+  }
+
+  &--next {
+    right: $spacing-4;
+
+    @include respond-to(md) {
+      right: -$spacing-8;
+    }
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.slider-indicators {
+  position: absolute;
+  bottom: $spacing-6;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: $spacing-3;
+  z-index: 10;
+
+  @include respond-to(md) {
+    bottom: $spacing-8;
+  }
+}
+
+.slider-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: $radius-full;
+  background: rgba($white, 0.5);
+  border: 2px solid rgba($white, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+
+  &:hover {
+    background: rgba($primary-gold, 0.8);
+    border-color: $primary-gold;
+    transform: scale(1.2);
+  }
+
+  &.active {
+    width: 32px;
+    background: $primary-gold;
+    border-color: $primary-gold;
+    box-shadow: 0 0 12px rgba($primary-gold, 0.6);
   }
 }
