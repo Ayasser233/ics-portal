@@ -1,24 +1,40 @@
 @use '../../../../styles/index' as *;
 
 .contact-form {
-  background-color: $bg-secondary;
-  border-radius: $radius-lg;
-  padding: $spacing-4;
+  background: linear-gradient(135deg, $white 0%, rgba($primary-gold, 0.02) 100%);
+  border-radius: $radius-2xl;
+  padding: $spacing-6;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+  border: 2px solid rgba($primary-gold, 0.15);
+  box-shadow:
+    0 10px 30px rgba($primary-navy, 0.08),
+    0 4px 12px rgba($primary-gold, 0.05);
+  position: relative;
+
+  // Decorative corner accent
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at top right, rgba($primary-gold, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
   @include respond-to(sm) {
-    padding: $spacing-5;
-    border-radius: $radius-xl;
+    padding: $spacing-8;
   }
 
   @include respond-to(md) {
-    padding: $spacing-6;
+    padding: $spacing-10;
   }
 
   @include respond-to(lg) {
-    padding: $spacing-8;
+    padding: $spacing-12;
   }
 
   &__form {
@@ -43,9 +59,10 @@
   &__field {
     display: flex;
     flex-direction: column;
-    gap: $spacing-1;
+    gap: $spacing-2;
     width: 100%;
     min-width: 0;
+    position: relative;
 
     @include respond-to(sm) {
       gap: $spacing-2;
@@ -58,129 +75,296 @@
 
   &__label {
     font-size: $font-size-sm;
-    font-weight: $font-weight-medium;
-    color: $text-primary;
+    font-weight: $font-weight-semibold;
+    color: $primary-navy;
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+
+    @include respond-to(md) {
+      font-size: $font-size-base;
+    }
+  }
+
+  &__label-optional {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    color: $text-muted;
+  }
+
+  &__hint {
+    font-size: $font-size-xs;
+    color: $text-muted;
+    margin-top: $spacing-1;
+    line-height: 1.4;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &__input-icon {
+    position: absolute;
+    left: $spacing-5;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba($primary-navy, 0.3);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+    opacity: 0.6;
+
+    @include respond-to(md) {
+      left: $spacing-6;
+    }
+
+    &--textarea {
+      top: $spacing-6;
+      transform: none;
+    }
+  }
+
+  &__input-wrapper:focus-within &__input-icon {
+    color: $primary-gold;
+    opacity: 1;
   }
 
   &__input,
   &__select,
   &__textarea {
-    padding: $spacing-2 $spacing-3;
-    font-size: 14px;
+    padding: $spacing-4 $spacing-5 $spacing-4 $spacing-12;
+    font-size: $font-size-base;
     color: $text-primary;
-    background-color: $white;
-    border: 1px solid $border-light;
-    border-radius: $radius-md;
-    transition: all 0.3s ease;
+    background-color: rgba($white, 0.8);
+    border: 2px solid rgba($primary-navy, 0.12);
+    border-radius: $radius-xl;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
     max-width: 100%;
-
-    @include respond-to(sm) {
-      padding: $spacing-3 $spacing-4;
-      font-size: $font-size-sm;
-    }
+    font-family: inherit;
+    backdrop-filter: blur(10px);
 
     @include respond-to(md) {
-      padding: $spacing-3 $spacing-5;
+      padding: $spacing-5 $spacing-6 $spacing-5 $spacing-12;
       font-size: $font-size-base;
     }
 
-    @include respond-to(lg) {
-      padding: $spacing-3 $spacing-6;
+    &::placeholder {
+      color: rgba($text-muted, 0.7);
+      font-weight: $font-weight-semibold;
     }
 
-    &::placeholder {
-      color: $text-muted;
+    &:hover {
+      border-color: rgba($primary-navy, 0.25);
+      background-color: rgba($white, 0.95);
+      box-shadow: 0 2px 8px rgba($primary-navy, 0.06);
     }
 
     &:focus {
       outline: none;
-      border-color: $primary-navy;
-      box-shadow: 0 0 0 3px rgba($primary-navy, 0.1);
+      border-color: $primary-gold;
+      background-color: $white;
+      box-shadow:
+        0 0 0 4px rgba($primary-gold, 0.12),
+        0 4px 16px rgba($primary-gold, 0.15);
     }
   }
 
   &__select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%230f174b' stroke-opacity='0.4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right $spacing-4 center;
+    background-position: right $spacing-5 center;
     padding-right: $spacing-12;
 
     @include respond-to(md) {
       background-position: right $spacing-6 center;
       padding-right: $spacing-16;
     }
+
+    &:focus {
+      background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23e1bc30' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
   }
 
   &__textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 120px;
     font-family: inherit;
+    line-height: 1.6;
+    padding-left: $spacing-12;
 
     @include respond-to(md) {
-      min-height: 120px;
+      min-height: 140px;
+      padding-left: $spacing-12;
+    }
+  }
+
+  // File upload styles
+  &__file-input {
+    display: none;
+  }
+
+  &__file-upload {
+    display: flex;
+    align-items: center;
+    gap: $spacing-4;
+    padding: $spacing-6;
+    border: 2px dashed rgba($primary-navy, 0.2);
+    border-radius: $radius-lg;
+    background: linear-gradient(135deg, rgba($primary-gold, 0.02) 0%, $white 100%);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    svg {
+      flex-shrink: 0;
+      color: $primary-gold;
+    }
+
+    &:hover {
+      border-color: $primary-gold;
+      background: linear-gradient(135deg, rgba($primary-gold, 0.05) 0%, $white 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary-gold, 0.15);
+    }
+
+    @include respond-to(md) {
+      padding: $spacing-8;
+    }
+  }
+
+  &__file-upload-text {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-1;
+  }
+
+  &__file-upload-title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $primary-navy;
+  }
+
+  &__file-upload-subtitle {
+    font-size: $font-size-xs;
+    color: $text-muted;
+  }
+
+  &__file-selected {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    padding: $spacing-4 $spacing-5;
+    border: 2px solid rgba($primary-gold, 0.3);
+    border-radius: $radius-lg;
+    background: linear-gradient(135deg, rgba($primary-gold, 0.05) 0%, $white 100%);
+
+    svg {
+      flex-shrink: 0;
+      color: $primary-gold;
+    }
+  }
+
+  &__file-name {
+    flex: 1;
+    font-size: $font-size-sm;
+    color: $primary-navy;
+    font-weight: $font-weight-medium;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__file-remove {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: $spacing-2;
+    color: $text-muted;
+    cursor: pointer;
+    border-radius: $radius-md;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: rgba($error, 0.1);
+      color: $error;
     }
   }
 
   &__submit {
     grid-column: 1 / -1;
-    padding: $spacing-3 $spacing-6;
-    font-size: 14px;
-    font-weight: $font-weight-semibold;
-    color: $white;
-    background: linear-gradient(135deg, $primary-navy 0%, $primary-navy 100%);
+    padding: $spacing-5 $spacing-8;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: $primary-navy;
+    background: linear-gradient(135deg, $primary-gold 0%, $primary-gold-light 100%);
     border: none;
-    border-radius: $radius-md;
+    border-radius: $radius-xl;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: $spacing-2;
+    gap: $spacing-3;
     width: 100%;
     max-width: 100%;
     white-space: nowrap;
+    box-shadow:
+      0 4px 12px rgba($primary-gold, 0.3),
+      0 2px 6px rgba($primary-navy, 0.1);
+    position: relative;
+    overflow: hidden;
 
-    @include respond-to(sm) {
-      padding: $spacing-4 $spacing-8;
-      font-size: $font-size-sm;
-      gap: $spacing-3;
+    // Shine effect
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba($white, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
+    &:hover::before {
+      left: 100%;
     }
 
     @include respond-to(md) {
-      padding: $spacing-5 $spacing-10;
-      font-size: $font-size-base;
-      gap: $spacing-4;
-    }
-
-    @include respond-to(lg) {
-      padding: $spacing-6 $spacing-12;
+      padding: $spacing-6 $spacing-10;
+      font-size: $font-size-lg;
     }
 
     svg {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.3s ease;
+      width: 20px;
+      height: 20px;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
       @include respond-to(md) {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
       }
     }
 
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba($primary-navy, 0.3);
+      transform: translateY(-3px);
+      box-shadow:
+        0 8px 24px rgba($primary-gold, 0.4),
+        0 4px 12px rgba($primary-navy, 0.15);
 
       svg {
-        transform: translateX(4px);
+        transform: translateX(5px);
       }
     }
 
     &:active {
-      transform: translateY(0);
+      transform: translateY(-1px);
     }
   }
 
@@ -189,10 +373,11 @@
     font-size: $font-size-xs;
     color: $text-muted;
     text-align: center;
-    margin: $spacing-2 0 0;
-    line-height: 1.5;
+    margin: $spacing-3 0 0;
+    line-height: 1.6;
 
     @include respond-to(md) {
+      font-size: $font-size-sm;
       margin: $spacing-4 0 0;
     }
   }

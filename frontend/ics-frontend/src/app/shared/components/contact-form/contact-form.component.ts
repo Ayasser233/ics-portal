@@ -9,6 +9,7 @@ export interface ContactFormData {
   phone: string;
   companyName: string;
   service: string;
+  cvFile: File | null;
   message: string;
 }
 
@@ -59,8 +60,11 @@ export class ContactFormComponent {
     phone: '',
     companyName: '',
     service: '',
+    cvFile: null,
     message: ''
   };
+
+  selectedFileName: string = '';
 
   get availableServices() {
     return this.servicesByUserType[this.formData.userType as keyof typeof this.servicesByUserType] || [];
@@ -69,6 +73,27 @@ export class ContactFormComponent {
   onUserTypeChange(): void {
     // Clear selected service when user type changes
     this.formData.service = '';
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      // Check if file is PDF or DOC/DOCX
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      if (allowedTypes.includes(file.type)) {
+        this.formData.cvFile = file;
+        this.selectedFileName = file.name;
+      } else {
+        alert('Please upload a PDF or Word document');
+        input.value = '';
+      }
+    }
+  }
+
+  removeFile(): void {
+    this.formData.cvFile = null;
+    this.selectedFileName = '';
   }
 
   onSubmit(): void {
