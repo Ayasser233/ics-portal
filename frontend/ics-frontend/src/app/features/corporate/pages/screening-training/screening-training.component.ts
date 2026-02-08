@@ -26,32 +26,24 @@ export class ScreeningTraining {
     {
       icon: 'icons/3d-Icons/Initial Interview.svg',
       title: 'Initial Interview & Skills Assessment',
-      description:
-        'Comprehensive evaluation of qualifications, experience, and professional capabilities.',
     },
     {
       icon: 'icons/3d-Icons/Background and experience Verification.svg',
       title: 'Background and Experience Verification',
-      description:
-        'Thorough verification of credentials, references, and employment history.',
     },
     {
       icon: 'icons/3d-Icons/Medical Screening.svg',
       title: 'Medical Screening',
       description:
-        'General health check-up, communicable disease testing, and physical and mental fitness assessment.',
+        '<ul><li>General health check-up</li><li>Communicable disease testing</li><li>Physical and mental fitness assessment</li></ul>',
     },
     {
       icon: 'icons/3d-Icons/Character Check.svg',
       title: 'Character & Reference Checks',
-      description:
-        'Verification of character, integrity, and professional references from previous employers.',
     },
     {
       icon: 'icons/3d-Icons/Pre-deployment.svg',
       title: 'Pre-Deployment Orientation & Training',
-      description:
-        'Comprehensive preparation including workplace expectations, cultural awareness, and job-specific training.',
     },
   ];
 

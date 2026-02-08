@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 export interface ScreeningStep {
   icon: string;
   title: string;
-  description: string;
+  description?: string;
 }
 
 @Component({

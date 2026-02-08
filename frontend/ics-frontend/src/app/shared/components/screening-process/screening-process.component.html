@@ -11,7 +11,9 @@
             <img [src]="step.icon" [alt]="step.title" />
           </div>
           <h3 class="screening-card__title">{{ step.title }}</h3>
-          <p class="screening-card__description">{{ step.description }}</p>
+          @if (step.description) {
+            <div class="screening-card__description" [innerHTML]="step.description"></div>
+          }
         </div>
       }
     </div>

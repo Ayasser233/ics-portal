@@ -27,7 +27,7 @@ export class FooterComponent {
     { label: 'How to Hire', path: '/how-to-hire' },
     { label: 'Our Services', path: '/our-services' },
     { label: 'Screening & Training', path: '/screening-training' },
-    { label: 'Pricing', path: '/pricing' },
+    //{ label: 'Pricing', path: '/pricing' },
   ];
 
   resources: FooterLink[] = [

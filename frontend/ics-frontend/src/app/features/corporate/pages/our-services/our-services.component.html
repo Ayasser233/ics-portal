@@ -7,9 +7,44 @@
     </p>
   </div>
 
-  <div class="services-page__grid">
-    @for (service of services; track service.title) {
-      <app-service-card [service]="service" />
-    }
+  <div class="services-tabs">
+    <div class="services-tabs__nav">
+      <button
+        class="services-tabs__nav-btn"
+        [class.services-tabs__nav-btn--active]="activeTab === 'candidates'"
+        (click)="selectTab('candidates')"
+      >
+        Candidates
+      </button>
+      <button
+        class="services-tabs__nav-btn"
+        [class.services-tabs__nav-btn--active]="activeTab === 'businesses'"
+        (click)="selectTab('businesses')"
+      >
+        Businesses
+      </button>
+    </div>
+
+    <div class="services-tabs__content">
+      @if (activeTab === 'candidates') {
+        <div class="candidate-services">
+          @for (service of candidateServices; track service.title; let i = $index) {
+            <div class="candidate-service-item">
+              <h3 class="candidate-service-item__title">{{ i + 1 }}. {{ service.title }}</h3>
+              <p class="candidate-service-item__description">{{ service.description }}</p>
+            </div>
+          }
+        </div>
+      }
+
+      @if (activeTab === 'businesses') {
+
+        <div class="services-page__grid">
+          @for (service of services; track service.title) {
+            <app-service-card [service]="service" />
+          }
+        </div>
+      }
+    </div>
   </div>
 </section>

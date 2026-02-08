@@ -42,3 +42,6 @@ export { PackageIncludesComponent, type PackageFeature } from './package-include
 
 // Custom Solution CTA Component
 export { CustomSolutionCtaComponent } from './custom-solution-cta/custom-solution-cta.component';
+
+// Services Tabs Component
+export { ServicesTabsComponent, type ServiceTab, type ServiceItem } from './services-tabs/services-tabs.component';
