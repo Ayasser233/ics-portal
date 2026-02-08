@@ -73,4 +73,38 @@ export class OurServices {
       link: '/our-services/babysitter',
     },
   ];
+
+  candidateServices = [
+    {
+      title: 'Job Matching & Placement',
+      description:
+        'We carefully match applicants with suitable employers based on skills, experience, preferences, and job requirements.',
+    },
+    {
+      title: 'Application Screening & Interview Assistance',
+      description:
+        'Applicants receive guidance throughout the screening and interview process, this ensures applicants are well-prepared and confident.',
+    },
+    {
+      title: 'Skills Assessment & Training Support',
+      description:
+        'We assess applicants\' skills in household work such as cleaning, cooking, childcare, elderly care, and other domestic duties.',
+    },
+    {
+      title: 'Documentation & Legal Processing',
+      description:
+        'ICS provides full assistance with employment contracts, visas, medical exams, clearances, and other required documents.',
+    },
+    {
+      title: 'Pre-Departure Orientation & Guidance',
+      description:
+        'Applicants receive clear orientation about job expectations, cultural awareness, rights and responsibilities, and overseas living conditions to help them adjust smoothly to their new work environment.',
+    },
+  ];
+
+  activeTab: 'candidates' | 'businesses' = 'candidates';
+
+  selectTab(tab: 'candidates' | 'businesses'): void {
+    this.activeTab = tab;
+  }
 }

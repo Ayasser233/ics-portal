@@ -28,7 +28,6 @@ export class HeaderComponent {
       label: 'Our Services',
       path: '/our-services',
       submenu: [
-        { label: 'All Services', path: '/our-services' },
         { label: 'Full-Time Domestic Workers', path: '/our-services/full-time-domestic' },
         { label: 'Part-Time Domestic Workers', path: '/our-services/part-time-domestic' },
         { label: 'Cooks', path: '/our-services/cook' },
@@ -37,7 +36,7 @@ export class HeaderComponent {
       ],
     },
     { label: 'Screening & Training', path: '/screening-training' },
-    { label: 'Pricing', path: '/pricing' },
+    // { label: 'Pricing', path: '/pricing' },
     { label: 'Contact', path: '/contact-us' },
   ];
 

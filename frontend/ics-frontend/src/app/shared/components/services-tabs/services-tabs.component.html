@@ -1,0 +1,47 @@
+<section class="services-tabs">
+  <div class="services-tabs__container">
+    <h2 class="services-tabs__title">{{ title }}</h2>
+
+    <div class="services-tabs__nav">
+      @for (tab of tabs; track tab.label; let i = $index) {
+        <button
+          class="services-tabs__nav-btn"
+          [class.services-tabs__nav-btn--active]="activeTab === i"
+          (click)="selectTab(i)"
+        >
+          {{ tab.label }}
+        </button>
+      }
+    </div>
+
+    <div class="services-tabs__content">
+      @for (tab of tabs; track tab.label; let i = $index) {
+        @if (activeTab === i) {
+          <div class="services-tabs__panel">
+            @if (tab.intro) {
+              <p class="services-tabs__intro">{{ tab.intro }}</p>
+            }
+
+            <div class="services-tabs__services">
+              @for (service of tab.services; track service.title; let j = $index) {
+                <div class="service-item">
+                  @if (!service.items) {
+                    <h3 class="service-item__title">{{ j + 1 }}. {{ service.title }}</h3>
+                    <p class="service-item__description">{{ service.description }}</p>
+                  } @else {
+                    <h3 class="service-item__title">{{ service.title }}</h3>
+                    <ul class="service-item__list">
+                      @for (item of service.items; track item) {
+                        <li>{{ item }}</li>
+                      }
+                    </ul>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>

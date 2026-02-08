@@ -25,19 +25,19 @@ export class Home {
     },
     {
       icon: 'Transparency',
-      title: 'Transparency',
+      title: 'Quality',
       description: 'Carefully selected and trained candidates.',
       color: '#3b82f6',
     },
     {
       icon: 'Professional Care',
-      title: 'Professional Care',
+      title: 'Responsibility',
       description: 'Ethical recruitment and worker welfare.',
       color: '#3b82f6',
     },
     {
       icon: 'Growth',
-      title: 'Continuous Growth',
+      title: 'Trust',
       description: 'Building long-term relationships with clients.',
       color: '#3b82f6',
     },
