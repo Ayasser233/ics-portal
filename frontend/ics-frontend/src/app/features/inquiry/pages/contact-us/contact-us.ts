@@ -17,28 +17,28 @@ export class ContactUs {
     {
       icon: 'email',
       title: 'Email Us',
-      primaryText: 'info@icsportal.com',
+      primaryText: 'apply@ipacph.com',
       secondaryText: 'We\'ll respond within 24 hours'
     },
     {
       icon: 'phone',
       title: 'Call Us',
-      primaryText: '+1 (555) 123-4567',
+      primaryText: '+63 2 7274 2863',
       secondaryText: 'Mon-Fri, 9:00 AM - 6:00 PM'
     },
     {
       icon: 'location',
       title: 'Visit Us',
-      primaryText: '123 Professional Plaza',
-      secondaryText: 'Suite 500, Business District',
-      tertiaryText: 'City, State 12345'
+      primaryText: '162 Suite B Pasig Blvd',
+      secondaryText: 'Pasig, Metro Manila',
+      tertiaryText: 'Philippines'
     },
     {
       icon: 'whatsapp',
       title: 'WhatsApp Us',
       primaryText: 'Chat with us on WhatsApp',
       secondaryText: 'Quick responses during business hours',
-      whatsappNumber: '15551234567' // Format: country code + phone number without + or spaces
+      whatsappNumber: ' ' // Format: country code + phone number without + or spaces
     }
   ];
 
